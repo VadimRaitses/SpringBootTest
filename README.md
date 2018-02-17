@@ -20,8 +20,8 @@ curl -X POST \
  "Authorization":"Bearer aabbccdd_ee"
  
 ## Next steps
- you can also check your user with current response token
- curl -X GET \
+you can also check your user with current response token
+curl -X GET \
   http://localhost:8080/account/ \
   -H 'authorization: Bearer aabbccdd_ee' \
   -H 'cache-control: no-cache' \
