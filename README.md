@@ -16,10 +16,10 @@ curl -X POST \
   -H 'content-type: application/json' \
   -d '{"email":"test","password":"test"}'
   
- in response appear this header
- authorization Bearer aabbccdd_ee
+ In response will appear authorization header with jwt token, which should be copied to other requst headers for authorization 
+ "Authorization":"Bearer aabbccdd_ee"
  
- * Next steps
+## Next steps
  you can also check your user with current response token
  curl -X GET \
   http://localhost:8080/account/ \
