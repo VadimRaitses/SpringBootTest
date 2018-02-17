@@ -51,11 +51,9 @@ curl -X GET \
   -H 'authorization: authorization: Bearer aabbccdd_ee' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
-  -d '{
-"title":"vadim",
-"body":"body",
-"price":1.04}'
-saving entity
+  -d '{"title":"vadim","body":"body","price":1.04}'
+
+  saving entity
 
    ## PUT
   curl -X PUT
