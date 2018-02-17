@@ -57,19 +57,17 @@ curl -X GET \
 
    ## PUT
   curl -X PUT
-  http://localhost:8080/entities/1\
+  http://localhost:8080/entities/1 \
   -H 'authorization: authorization: Bearer aabbccdd_ee' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
-  -d '{
-"title":"vadim",
-"body":"body",
-"price":1.04}'
+  -d '{"title":"vadim","body":"body","price":1.04}'
+
 updating entity
   
   ## DELETE
 curl -X DELETE
-  http://localhost:8080/entities/1\
+  http://localhost:8080/entities/1 \
   -H 'authorization: Bearer aabbccdd_ee' \
   -H 'cache-control: no-cache' \
-  
+  deliting entity
