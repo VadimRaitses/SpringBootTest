@@ -43,12 +43,11 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
                 return true;
             }
             UsernamePasswordAuthenticationToken authentication = getAuthentication(req);
-
             SecurityContextHolder.getContext().setAuthentication(authentication);
             chain.doFilter(req, res);
             return true;
         } catch (Exception e) {
-            LOGGER.error("error during authorization" + e.getMessage());
+            LOGGER.error(":doFilterInternal:error during authorization" + e.getMessage());
             return false;
         }
     }

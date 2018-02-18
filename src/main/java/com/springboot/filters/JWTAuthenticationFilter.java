@@ -38,16 +38,17 @@ public class JWTAuthenticationFilter extends AbstractAuthenticationProcessingFil
         try {
             Account creds = new ObjectMapper()
                     .readValue(httpServletRequest.getInputStream(), Account.class);
-            String currentPasword = creds.getPassword();
-            userDetailsService.addAccount(creds);
+            String currentPassword = creds.getPassword();
+            if (userDetailsService.getAccount(creds.getEmail()) == null)
+                userDetailsService.addAccount(creds);
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             creds.getEmail(),
-                            currentPasword,
+                            currentPassword,
                             new ArrayList<>())
             );
         } catch (IOException e) {
-            LOGGER.error("error during authorization" + e.getMessage());
+            LOGGER.error(":attemptAuthentication:error during authorization" + e.getMessage());
             throw new RuntimeException(e);
         }
     }

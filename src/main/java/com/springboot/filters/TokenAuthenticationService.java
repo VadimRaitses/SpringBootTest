@@ -4,7 +4,6 @@ package com.springboot.filters;
  * Created by Developer on 2/14/2018.
  */
 
-import com.springboot.domain.Account;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,10 +18,10 @@ import java.util.Date;
 import static com.springboot.filters.SecurityConstants.*;
 
 
-public class TokenAuthenticationService {
+class TokenAuthenticationService {
 
 
-    public static void addAuthentication(HttpServletResponse res, Authentication auth) {
+    static void addAuthentication(HttpServletResponse res, Authentication auth) {
         String token = Jwts.builder()
                 .setSubject(((User) auth.getPrincipal()).getUsername())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
@@ -31,7 +30,7 @@ public class TokenAuthenticationService {
         res.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
     }
 
-    public static UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
+    static UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
         String token = request.getHeader(HEADER_STRING);
         if (token != null) {
             // parse the token.
@@ -48,12 +47,5 @@ public class TokenAuthenticationService {
         return null;
     }
 
-    public static String getSecurityToken(Account user) {
-        return Jwts.builder()
-                .setSubject(user.getEmail())
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-                .signWith(SignatureAlgorithm.HS512, SECRET.getBytes())
-                .compact();
-    }
 
 }
