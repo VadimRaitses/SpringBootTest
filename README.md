@@ -1,10 +1,10 @@
 # SpringBootTest
-restful demo for springboot framework with bearer authentication and cool groovy tests
+springboot restful demo with JWT auth and cool groovy tests.
 
 
 # Foreword
-Hi everyone who looking for fast start with springboot,jwt authentication, rest framework, spock unitesting,it the place.
-there you can get all instruments to make it work.
+For everyone,who looking for fast start with springboot,jwt authentication, rest framework and spock unitesting.
+
 
 ## First step
 This step will make for you, a user and authenticate him, so response will appear with jwt token
